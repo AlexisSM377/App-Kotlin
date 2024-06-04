@@ -40,6 +40,10 @@ class Registrar_Admin : AppCompatActivity() {
         binging.BtnRegistrarAdmin.setOnClickListener {
             ValidarInformacion()
         }
+
+        binging.TxtTengoCuenta.setOnClickListener{
+            startActivity(Intent(this@Registrar_Admin, Login_Admin::class.java))
+        }
     }
 
     var nombres = ""
