@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "530485053903",
+    "project_id": "app-libros-kotlin-6f273",
+    "storage_bucket": "app-libros-kotlin-6f273.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:530485053903:android:e72b27e23ce08e4300eaba",
+        "android_client_info": {
+          "package_name": "com.alexdevs.librosappkotlin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDw_He7EDTsXu-ow0We4GZNqt19NsdzVXs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
