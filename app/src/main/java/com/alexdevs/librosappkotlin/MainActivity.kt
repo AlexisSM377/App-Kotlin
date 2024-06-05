@@ -77,12 +77,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, Elegir_rol::class.java))
             finishAffinity()
         } else {
-            Toast.makeText(
+            /*Toast.makeText(
                 applicationContext,
                 "Bienvenido(a) ${firebaseUser.email}",
                 Toast.LENGTH_SHORT
             )
-                .show()
+                .show()*/
         }
     }
 }
