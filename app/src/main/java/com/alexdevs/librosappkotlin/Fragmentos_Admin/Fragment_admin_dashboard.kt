@@ -3,12 +3,15 @@ package com.alexdevs.librosappkotlin.Fragmentos_Admin
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.alexdevs.librosappkotlin.Administrador.AdaptadorCategoria
 import com.alexdevs.librosappkotlin.Administrador.Agregar_Categoria
+import com.alexdevs.librosappkotlin.Administrador.Agregar_Pdf
 import com.alexdevs.librosappkotlin.Administrador.ModeloCategoria
 import com.alexdevs.librosappkotlin.R
 import com.alexdevs.librosappkotlin.databinding.FragmentAdminDashboardBinding
@@ -42,12 +45,30 @@ class Fragment_admin_dashboard : Fragment() {
 
         ListarCategorias()
 
+        binding.BuscarCategoria.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(categoria: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                try {
+                    adaptadorCategoria.filter.filter(categoria)
+                }catch (e: Exception){
+
+                }
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+        })
+
         binding.BtnAgregarCategoria.setOnClickListener{
             startActivity(Intent(mContext, Agregar_Categoria::class.java))
         }
 
         binding.AgregarPdf.setOnClickListener{
-
+            startActivity(Intent(mContext, Agregar_Pdf::class.java))
         }
     }
 

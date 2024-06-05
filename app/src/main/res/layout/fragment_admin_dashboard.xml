@@ -6,17 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".Fragmentos_Admin.Fragment_admin_dashboard">
 
+    <EditText
+        android:id="@+id/Buscar_categoria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:drawableStart="@drawable/ic_buscar"
+        android:hint="@string/Buscar_categoria" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categoriasRv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/Ll_dashboard"
+        android:layout_below="@+id/Buscar_categoria"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
-        tools:listitem="@layout/item_categoria_admin"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_categoria_admin" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/Ll_dashboard"
