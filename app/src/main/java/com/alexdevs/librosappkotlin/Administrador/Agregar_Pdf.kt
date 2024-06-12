@@ -125,7 +125,7 @@ class Agregar_Pdf : AppCompatActivity() {
         hashMap["id"] = "$tiempo"
         hashMap["titulo"] = titulo
         hashMap["descripcion"] = descripcion
-        hashMap["categoria"] = categoria
+        hashMap["categoria"] = id_categoria
         hashMap["url"] = UrlPdfSubido
         hashMap["tiempo"] = tiempo
         hashMap["contadorVistas"] = 0

@@ -65,7 +65,7 @@ class AdaptadorCategoria : RecyclerView.Adapter<AdaptadorCategoria.HolderCategor
 
         holder.itemView.setOnClickListener{
             val intent = Intent(m_context, ListaPdfAdmin::class.java)
-            intent.putExtra("id", id)
+            intent.putExtra("idCategoria", id)
             intent.putExtra("tituloCategoria", categoria)
             m_context.startActivity(intent)
         }
