@@ -37,6 +37,17 @@
     <string name="Tv_categoria_libro">Categoría</string>
     <string name="Btn_subir_libro">Subir Libro</string>
 
+    <string name="Txt_titulo_libro">Titulo Libro</string>
+    <string name="Txt_categoria_libro">Categoría</string>
+    <string name="Et_buscar_libro_admin">Buscar Libro</string>
+
+    <string name="Txt_titulo_libro_item">Titulo Libro</string>
+    <string name="Txt_descripcion_libro_item">Descripción Libro</string>
+    <string name="Txt_categoria_libro_admin">Categoría</string>
+    <string name="Txt_tamaño_libro_admin">5MB</string>
+    <string name="Txt_fecha_libro_admin">dd/MM/yyyy</string>
+
+
 
 
 

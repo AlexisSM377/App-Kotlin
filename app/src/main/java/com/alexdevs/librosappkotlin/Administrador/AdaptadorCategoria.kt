@@ -1,6 +1,7 @@
 package com.alexdevs.librosappkotlin.Administrador
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -47,6 +48,7 @@ class AdaptadorCategoria : RecyclerView.Adapter<AdaptadorCategoria.HolderCategor
         val uid = modelo.uid
 
         holder.categoriaTv.text = categoria
+
         holder.eliminarCarIb.setOnClickListener {
             var builder = AlertDialog.Builder(m_context)
             builder.setTitle("Eleminar categoria")
@@ -59,6 +61,13 @@ class AdaptadorCategoria : RecyclerView.Adapter<AdaptadorCategoria.HolderCategor
                     a.dismiss()
                 }
             builder.show()
+        }
+
+        holder.itemView.setOnClickListener{
+            val intent = Intent(m_context, ListaPdfAdmin::class.java)
+            intent.putExtra("id", id)
+            intent.putExtra("tituloCategoria", categoria)
+            m_context.startActivity(intent)
         }
     }
 
