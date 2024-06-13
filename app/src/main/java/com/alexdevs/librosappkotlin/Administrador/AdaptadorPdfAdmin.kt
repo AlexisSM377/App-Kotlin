@@ -1,11 +1,13 @@
 package com.alexdevs.librosappkotlin.Administrador
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.alexdevs.librosappkotlin.databinding.ItemLibroAdminBinding
 
@@ -65,7 +67,34 @@ class AdaptadorPdfAdmin : RecyclerView.Adapter<AdaptadorPdfAdmin.HolderPdfAdmin>
         MisFunciones.CargarCategoria(categoriaID, holder.Txt_categoria_libro_admin)
         MisFunciones.CargarPdfUrl(pdfUrl, titulo, holder.VisualizadorPDF, holder.progressBar, null)
         MisFunciones.CargarSizePDF(pdfUrl, titulo, holder.Txt_tamaño_libro_admin)
+        
+        holder.Ib_mas_opciones.setOnClickListener {
+            verOpciones(modelo, holder)
+        }
 
+    }
+
+    private fun verOpciones(modelo: Modelopdf, holder: AdaptadorPdfAdmin.HolderPdfAdmin) {
+        val idLibro = modelo.id
+        val urlLibro = modelo.url
+        val tituloLibro = modelo.titulo
+
+        val opciones = arrayOf("Actualizar", "Eliminar")
+
+        //Alert Dialog
+        val builder = AlertDialog.Builder(m_context)
+        builder.setTitle("Opciones")
+            .setItems(opciones){ dialog, position ->
+                if (position == 0){
+                    //Actualizar
+                    val intent = Intent(m_context, ActualizarLibro::class.java)
+                    intent.putExtra("idLibro", idLibro)
+                    m_context.startActivity(intent)
+                }else if (position == 1){
+                    //Eliminar
+                }
+            }
+            .show()
     }
 
     override fun getFilter(): Filter {

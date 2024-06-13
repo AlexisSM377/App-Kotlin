@@ -47,11 +47,8 @@
     <string name="Txt_tamaño_libro_admin">5MB</string>
     <string name="Txt_fecha_libro_admin">dd/MM/yyyy</string>
 
-
-
-
-
-
+    <string name="Txt_actualizar_libro">Actualizar Libro</string>
+    <string name="Btn_actualizar_libro">Actualizar</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
