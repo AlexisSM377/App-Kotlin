@@ -1,11 +1,14 @@
 package com.alexdevs.librosappkotlin.Administrador
 
 import android.app.Application
+import android.app.ProgressDialog
+import android.content.Context
 
 import android.text.format.DateFormat
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import com.github.barteksc.pdfviewer.PDFView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -44,7 +47,7 @@ class MisFunciones : Application() {
                         size.text = "${String.format("%.2f", bytes)} bytes"
                     }
                 }
-                .addOnFailureListener {e ->
+                .addOnFailureListener { e ->
 
                 }
 
@@ -97,6 +100,39 @@ class MisFunciones : Application() {
                         TODO("Not yet implemented")
                     }
                 })
+        }
+
+        fun EliminarLibro(
+            context: Context,
+            idLibro: String,
+            urlLibro: String,
+            tituloLibro: String
+        ) {
+            val progressDialog = ProgressDialog(context)
+            progressDialog.setTitle("Espere un momento")
+            progressDialog.setMessage("Eliminando $tituloLibro")
+            progressDialog.setCanceledOnTouchOutside(false)
+            progressDialog.show()
+
+            val storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(urlLibro)
+            storageReference.delete()
+                .addOnSuccessListener {
+                    val ref = FirebaseDatabase.getInstance().getReference("Libros")
+                    ref.child(idLibro)
+                        .removeValue()
+                        .addOnSuccessListener {
+                            progressDialog.dismiss()
+                            Toast.makeText(context, "Libro eliminado correctamente", Toast.LENGTH_SHORT).show()
+                        }
+                        .addOnFailureListener {e->
+                            progressDialog.dismiss()
+                            Toast.makeText(context, "Error al eliminar el libro", Toast.LENGTH_SHORT).show()
+                        }
+                }
+                .addOnFailureListener {e->
+                    progressDialog.dismiss()
+                    Toast.makeText(context, "Error al eliminar el libro", Toast.LENGTH_SHORT).show()
+                }
         }
     }
 }

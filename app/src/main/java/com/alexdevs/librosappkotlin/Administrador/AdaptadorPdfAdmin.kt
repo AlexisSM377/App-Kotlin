@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.alexdevs.librosappkotlin.databinding.ItemLibroAdminBinding
@@ -92,6 +93,19 @@ class AdaptadorPdfAdmin : RecyclerView.Adapter<AdaptadorPdfAdmin.HolderPdfAdmin>
                     m_context.startActivity(intent)
                 }else if (position == 1){
                     //Eliminar
+                    val opcionesEliminar = arrayOf("Si", "Cancelar")
+                    val builder = AlertDialog.Builder(m_context)
+                        builder.setTitle("¿Desea eliminar el libro $tituloLibro?")
+                        .setItems(opcionesEliminar){ dialog, position ->
+                            if (position == 0){
+                                MisFunciones.EliminarLibro(m_context, idLibro, urlLibro, tituloLibro)
+                            }
+                            else if (position == 1){
+                                Toast.makeText(m_context, "Cancelado por el usuario", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                        .show()
+
                 }
             }
             .show()

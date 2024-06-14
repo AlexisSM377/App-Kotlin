@@ -1,7 +1,9 @@
 package com.alexdevs.librosappkotlin.Administrador
 
+import android.Manifest
 import android.app.ProgressDialog
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
@@ -11,6 +13,7 @@ import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.alexdevs.librosappkotlin.R
@@ -29,7 +32,7 @@ class Agregar_Pdf : AppCompatActivity() {
     private lateinit var categoriaArrayList: ArrayList<ModeloCategoria>
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var progressDialog: ProgressDialog
-    private var pdfUri : Uri?=null
+    private var pdfUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,12 +48,20 @@ class Agregar_Pdf : AppCompatActivity() {
         progressDialog.setTitle("Por favor espere")
         progressDialog.setCanceledOnTouchOutside(false)
 
-        binging.IbRegresar.setOnClickListener{
+        binging.IbRegresar.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
 
         binging.AdjuntarPdfIb.setOnClickListener {
-            ElegirPdf()
+            if (ContextCompat.checkSelfPermission(
+                    this@Agregar_Pdf,
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                ) == PackageManager.PERMISSION_GRANTED
+            ) {
+                ElegirPdf()
+            } else {
+                SolicitarPermisos.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+            }
         }
 
         binging.TvCategoriaLibro.setOnClickListener {
@@ -79,19 +90,17 @@ class Agregar_Pdf : AppCompatActivity() {
 
         if (titulo.isEmpty()) {
             Toast.makeText(this, "Ingrese un titulo", Toast.LENGTH_SHORT).show()
-        }else if (descripcion.isEmpty()) {
+        } else if (descripcion.isEmpty()) {
             Toast.makeText(this, "Ingrese una descripcion", Toast.LENGTH_SHORT).show()
-        }else if (categoria.isEmpty()) {
+        } else if (categoria.isEmpty()) {
             Toast.makeText(this, "Seleccione una categoria", Toast.LENGTH_SHORT).show()
-        }else if(pdfUri == null){
+        } else if (pdfUri == null) {
             Toast.makeText(this, "Adjunte un libro", Toast.LENGTH_SHORT).show()
-        }
-        else{
+        } else {
             SubirPdfStore()
         }
 
     }
-
 
 
     private fun SubirPdfStore() {
@@ -102,16 +111,20 @@ class Agregar_Pdf : AppCompatActivity() {
         val ruta_libro = "Libros/$tiempo"
         val storageReference = FirebaseStorage.getInstance().getReference(ruta_libro)
         storageReference.putFile(pdfUri!!)
-            .addOnSuccessListener {tarea->
-                val uriTask : Task<Uri> = tarea.storage.downloadUrl
+            .addOnSuccessListener { tarea ->
+                val uriTask: Task<Uri> = tarea.storage.downloadUrl
                 while (!uriTask.isSuccessful);
                 val UrlPdfSubido = "${uriTask.result}"
                 SubirPdfBD(UrlPdfSubido, tiempo)
 
             }
-            .addOnFailureListener {e->
+            .addOnFailureListener { e ->
                 progressDialog.dismiss()
-                Toast.makeText(this, "Error al subir el archivo debido a ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "Error al subir el archivo debido a ${e.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
 
             }
     }
@@ -120,7 +133,7 @@ class Agregar_Pdf : AppCompatActivity() {
         progressDialog.setMessage("Subiendo pdf a la base de datos")
         val uid = firebaseAuth.uid
 
-        val hashMap : HashMap<String, Any> = HashMap()
+        val hashMap: HashMap<String, Any> = HashMap()
         hashMap["uid"] = "$uid"
         hashMap["id"] = "$tiempo"
         hashMap["titulo"] = titulo
@@ -142,16 +155,21 @@ class Agregar_Pdf : AppCompatActivity() {
                 binging.TvCategoriaLibro.setText("")
                 pdfUri = null
             }
-            .addOnFailureListener {e->
+            .addOnFailureListener { e ->
                 progressDialog.dismiss()
-                Toast.makeText(this, "Error al subir el libro debido a ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "Error al subir el libro debido a ${e.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
 
     }
 
     private fun CargarCategorias() {
         categoriaArrayList = ArrayList()
-        val ref = FirebaseDatabase.getInstance().getReference("Categorias").orderByChild("categoria")
+        val ref =
+            FirebaseDatabase.getInstance().getReference("Categorias").orderByChild("categoria")
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 categoriaArrayList.clear()
@@ -179,7 +197,7 @@ class Agregar_Pdf : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
 
         builder.setTitle("Seleccionar Categoria")
-            .setItems(categoriasArray){ dialog, which ->
+            .setItems(categoriasArray) { dialog, which ->
                 id_categoria = categoriaArrayList[which].id
                 titulo_categoria = categoriaArrayList[which].categoria
                 binging.TvCategoriaLibro.text = titulo_categoria
@@ -187,7 +205,7 @@ class Agregar_Pdf : AppCompatActivity() {
             .show()
     }
 
-    private fun ElegirPdf(){
+    private fun ElegirPdf() {
         val intent = Intent()
         intent.type = "application/pdf"
         intent.action = Intent.ACTION_GET_CONTENT
@@ -196,14 +214,29 @@ class Agregar_Pdf : AppCompatActivity() {
 
     val pdfActivityRL = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult(),
-        ActivityResultCallback<ActivityResult> {resultado->
-            if (resultado.resultCode == RESULT_OK){
+        ActivityResultCallback<ActivityResult> { resultado ->
+            if (resultado.resultCode == RESULT_OK) {
                 pdfUri = resultado.data!!.data
-            }else{
+            } else {
                 Toast.makeText(this, "Cancelado", Toast.LENGTH_SHORT).show()
             }
         }
 
     )
+
+    private var SolicitarPermisos =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { Permiso ->
+            if (Permiso) {
+                //Permiso Concedido
+                ElegirPdf()
+            } else {
+                //Permiso Denegado
+                Toast.makeText(
+                    this,
+                    "Permiso denegado para acceder a la galeria",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
 
 }
