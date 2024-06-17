@@ -16,10 +16,10 @@ class AdaptadorPdfAdmin : RecyclerView.Adapter<AdaptadorPdfAdmin.HolderPdfAdmin>
 
     private lateinit var binding: ItemLibroAdminBinding
 
-    private var m_context : Context
-    public var pdfArrayList : ArrayList<Modelopdf>
-    private var filtroLibro : ArrayList<Modelopdf>
-    private var filtro : FiltroPdfAdmin?=null
+    private var m_context: Context
+    public var pdfArrayList: ArrayList<Modelopdf>
+    private var filtroLibro: ArrayList<Modelopdf>
+    private var filtro: FiltroPdfAdmin? = null
 
     constructor(m_context: Context, pdfArrayList: ArrayList<Modelopdf>) : super() {
         this.m_context = m_context
@@ -68,9 +68,15 @@ class AdaptadorPdfAdmin : RecyclerView.Adapter<AdaptadorPdfAdmin.HolderPdfAdmin>
         MisFunciones.CargarCategoria(categoriaID, holder.Txt_categoria_libro_admin)
         MisFunciones.CargarPdfUrl(pdfUrl, titulo, holder.VisualizadorPDF, holder.progressBar, null)
         MisFunciones.CargarSizePDF(pdfUrl, titulo, holder.Txt_tamaño_libro_admin)
-        
+
         holder.Ib_mas_opciones.setOnClickListener {
             verOpciones(modelo, holder)
+        }
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(m_context, DetalleLibro::class.java)
+            intent.putExtra("idLibro", pdfId)
+            m_context.startActivity(intent)
         }
 
     }
@@ -85,23 +91,31 @@ class AdaptadorPdfAdmin : RecyclerView.Adapter<AdaptadorPdfAdmin.HolderPdfAdmin>
         //Alert Dialog
         val builder = AlertDialog.Builder(m_context)
         builder.setTitle("Opciones")
-            .setItems(opciones){ dialog, position ->
-                if (position == 0){
+            .setItems(opciones) { dialog, position ->
+                if (position == 0) {
                     //Actualizar
                     val intent = Intent(m_context, ActualizarLibro::class.java)
                     intent.putExtra("idLibro", idLibro)
                     m_context.startActivity(intent)
-                }else if (position == 1){
+                } else if (position == 1) {
                     //Eliminar
                     val opcionesEliminar = arrayOf("Si", "Cancelar")
                     val builder = AlertDialog.Builder(m_context)
-                        builder.setTitle("¿Desea eliminar el libro $tituloLibro?")
-                        .setItems(opcionesEliminar){ dialog, position ->
-                            if (position == 0){
-                                MisFunciones.EliminarLibro(m_context, idLibro, urlLibro, tituloLibro)
-                            }
-                            else if (position == 1){
-                                Toast.makeText(m_context, "Cancelado por el usuario", Toast.LENGTH_SHORT).show()
+                    builder.setTitle("¿Desea eliminar el libro $tituloLibro?")
+                        .setItems(opcionesEliminar) { dialog, position ->
+                            if (position == 0) {
+                                MisFunciones.EliminarLibro(
+                                    m_context,
+                                    idLibro,
+                                    urlLibro,
+                                    tituloLibro
+                                )
+                            } else if (position == 1) {
+                                Toast.makeText(
+                                    m_context,
+                                    "Cancelado por el usuario",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                         }
                         .show()
