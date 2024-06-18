@@ -132,7 +132,7 @@
                             android:layout_marginEnd="5dp" />
 
                         <TextView
-                            android:id="@+id/tamaño_D"
+                            android:id="@+id/size_D"
                             android:text="@string/tamaño_D"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
