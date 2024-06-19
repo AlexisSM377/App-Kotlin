@@ -39,7 +39,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbarRLDetalle"
-        android:padding="5dp">
+        android:padding="5dp"
+        android:layout_above="@+id/Btn_leer_libro">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -86,111 +87,105 @@
                     android:layout_toEndOf="@+id/pdfRL">
 
                     <!--Categoria-->
-                    <TableRow
-                        android:layout_marginTop="5dp">
+                    <TableRow android:layout_marginTop="5dp">
 
                         <TextView
-                            android:text="@string/Txt_categoria_D"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp" />
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/Txt_categoria_D" />
 
                         <TextView
                             android:id="@+id/categoria_D"
-                            android:text="@string/categoria_D"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp" />
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/categoria_D" />
 
                     </TableRow>
                     <!--Fecha-->
-                    <TableRow
-                        android:layout_marginTop="5dp">
+                    <TableRow android:layout_marginTop="5dp">
 
                         <TextView
-                            android:text="@string/Txt_fecha_D"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp" />
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/Txt_fecha_D" />
 
                         <TextView
                             android:id="@+id/fecha_D"
-                            android:text="@string/fecha_D"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp" />
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/fecha_D" />
 
                     </TableRow>
                     <!--Tamaño-->
-                    <TableRow
-                        android:layout_marginTop="5dp">
+                    <TableRow android:layout_marginTop="5dp">
 
                         <TextView
-                            android:text="@string/Txt_tamaño_D"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp" />
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/Txt_tamaño_D" />
 
                         <TextView
                             android:id="@+id/size_D"
-                            android:text="@string/tamaño_D"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp" />
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/tamaño_D" />
 
                     </TableRow>
                     <!--Vistas-->
-                    <TableRow
-                        android:layout_marginTop="5dp">
+                    <TableRow android:layout_marginTop="5dp">
 
                         <TextView
-                            android:text="@string/Txt_vistas_D"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp" />
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/Txt_vistas_D" />
 
                         <TextView
                             android:id="@+id/vistas_D"
-                            android:text="@string/vistas_D"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp" />
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/vistas_D" />
 
                     </TableRow>
                     <!--Descargas-->
-                    <TableRow
-                        android:layout_marginTop="5dp">
+                    <TableRow android:layout_marginTop="5dp">
 
                         <TextView
-                            android:text="@string/Txt_descargas_D"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp" />
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/Txt_descargas_D" />
 
                         <TextView
                             android:id="@+id/descargas_D"
-                            android:text="@string/descargas_D"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp" />
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/descargas_D" />
 
                     </TableRow>
                     <!--Paginas-->
-                    <TableRow
-                        android:layout_marginTop="5dp">
+                    <TableRow android:layout_marginTop="5dp">
 
                         <TextView
-                            android:text="@string/Txt_paginas_D"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp" />
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/Txt_paginas_D" />
 
                         <TextView
                             android:id="@+id/paginas_D"
-                            android:text="@string/paginas_D"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp" />
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/paginas_D" />
 
                     </TableRow>
 
@@ -199,20 +194,28 @@
             </RelativeLayout>
 
             <TextView
-                android:text="@string/Txt_descripcion_D"
-                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/Txt_descripcion_D" />
 
             <TextView
                 android:id="@+id/descripcion_D"
-                android:text="@string/descripcion_D"
-                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/descripcion_D" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/Btn_leer_libro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:drawableTop="@drawable/ic_libro"
+        android:text="@string/Btn_leer_libro" />
 
 </RelativeLayout>

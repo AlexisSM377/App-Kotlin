@@ -1,10 +1,12 @@
 package com.alexdevs.librosappkotlin.Administrador
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.alexdevs.librosappkotlin.LeerLibro
 import com.alexdevs.librosappkotlin.R
 import com.alexdevs.librosappkotlin.databinding.ActivityDetalleLibroBinding
 import com.google.firebase.database.DataSnapshot
@@ -26,6 +28,12 @@ class DetalleLibro : AppCompatActivity() {
 
         binding.IbRegresar.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
+        }
+
+        binding.BtnLeerLibro.setOnClickListener {
+            val intent = Intent(this@DetalleLibro, LeerLibro::class.java)
+            intent.putExtra("idLibro", idLibro)
+            startActivity(intent)
         }
 
         cargarDetalleLibro()
