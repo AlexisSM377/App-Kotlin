@@ -4,26 +4,129 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="15dp"
     tools:context=".Fragmentos_Admin.Fragment_admin_cuenta">
 
-    <com.google.android.material.card.MaterialCardView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="2dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?selectableItemBackground"
-        app:cardCornerRadius="10dp"
-        app:contentPadding="10dp">
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_perfil"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_perfil" />
+
+        <!--Nombre-->
+        <TextView
+            android:id="@+id/nombre_admin"
+            android:text="@string/nombre_admin"
+            android:layout_below="@id/img_perfil"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <TextView
-            android:id="@+id/CerrarSesionAdmin"
+            android:id="@+id/Txt_nombre_admin"
+            android:text="@string/Txt_nombre_admin"
+            android:layout_below="@id/img_perfil"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!--Email-->
+        <TextView
+            android:id="@+id/email_admin"
+            android:text="@string/email_admin"
+            android:layout_below="@id/nombre_admin"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/Txt_email_admin"
+            android:text="@string/Txt_email_admin"
+            android:layout_below="@id/nombre_admin"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!--Tiempo-->
+        <TextView
+            android:id="@+id/tiempo_registro_admin"
+            android:text="@string/tiempo_registro_admin"
+            android:layout_below="@id/email_admin"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/Txt_tiempo_registro_admin"
+            android:text="@string/Txt_tiempo_registro_admin"
+            android:layout_below="@id/email_admin"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <!--Rol-->
+        <TextView
+            android:id="@+id/rol_admin"
+            android:text="@string/rol_admin"
+            android:layout_below="@id/tiempo_registro_admin"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/Txt_rol_admin"
+            android:text="@string/Txt_rol_admin"
+            android:layout_below="@id/tiempo_registro_admin"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_below="@+id/rol_admin"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="10dp"
-            android:text="@string/CerrarSesionAdmin"
-            app:drawableEndCompat="@drawable/ic_siguiente"
-            app:drawableStartCompat="@drawable/ic_cerrar_sesion" />
-    </com.google.android.material.card.MaterialCardView>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@string/Txt_mas_opciones"
+                android:layout_marginBottom="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?selectableItemBackground"
+                app:cardCornerRadius="10dp"
+                app:contentPadding="10dp">
+
+                <TextView
+                    android:id="@+id/CerrarSesionAdmin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:text="@string/CerrarSesionAdmin"
+                    app:drawableEndCompat="@drawable/ic_siguiente"
+                    app:drawableStartCompat="@drawable/ic_cerrar_sesion" />
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </RelativeLayout>
+
 
 </ScrollView>
