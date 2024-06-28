@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.alexdevs.librosappkotlin.Administrador.EditarPerfilAdmin
 import com.alexdevs.librosappkotlin.Administrador.MisFunciones
 import com.alexdevs.librosappkotlin.Elegir_rol
 import com.alexdevs.librosappkotlin.R
@@ -43,6 +44,10 @@ class Fragment_admin_cuenta : Fragment() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         cargarInformacion()
+
+        binding.EditarPerfilAdmin.setOnClickListener {
+            startActivity(Intent(mContext, EditarPerfilAdmin::class.java))
+        }
 
         binding.CerrarSesionAdmin.setOnClickListener {
             firebaseAuth.signOut()

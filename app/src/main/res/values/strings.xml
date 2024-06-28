@@ -83,6 +83,10 @@
     <string name="Txt_rol_admin"> -- </string>
 
     <string name="Txt_mas_opciones">Más Opciones: </string>
+    <string name="EditarPerfilAdmin">Editar Perfil</string>
+    <string name="Txt_editar_perfil_admin">Editar Perfil</string>
+    <string name="Et_a_nombres">Nombres</string>
+    <string name="Btn_actualizar_info">Actualizar</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
