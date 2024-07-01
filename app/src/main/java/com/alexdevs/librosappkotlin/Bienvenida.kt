@@ -58,6 +58,10 @@ class Bienvenida : AppCompatActivity() {
                             startActivity(Intent(this@Bienvenida, MainActivity::class.java))
                             finishAffinity()
                         }
+                        else if (rol == "cliente") {
+                            startActivity(Intent(this@Bienvenida, MainActivityCliente::class.java))
+                            finishAffinity()
+                        }
                     }
 
                     override fun onCancelled(error: DatabaseError) {

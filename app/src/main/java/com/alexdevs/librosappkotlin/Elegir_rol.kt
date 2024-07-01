@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.alexdevs.librosappkotlin.Administrador.Registrar_Admin
+import com.alexdevs.librosappkotlin.Cliente.Registro_cliente
 import com.alexdevs.librosappkotlin.databinding.ActivityElegirRolBinding
 
 class Elegir_rol : AppCompatActivity() {
@@ -26,7 +27,7 @@ class Elegir_rol : AppCompatActivity() {
         }
 
         binding.BtnRolCliente.setOnClickListener{
-            Toast.makeText(applicationContext, "Rol cliente", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this@Elegir_rol, Registro_cliente::class.java))
         }
 
     }

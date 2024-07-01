@@ -15,23 +15,41 @@
         android:orientation="vertical">
 
         <TextView
-            android:text="@string/Txt_rol"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="@string/Txt_rol"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:paddingTop="15dp"
+            android:src="@drawable/icono_administrador" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/Btn_rol_admin"
-            android:text="@string/Btn_rol_admin"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:text="@string/Btn_rol_admin"
+            android:textAllCaps="true" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:paddingTop="15dp"
+            android:src="@drawable/icono_cliente" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/Btn_rol_cliente"
-            android:text="@string/Btn_rol_cliente"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:text="@string/Btn_rol_cliente"
+            android:textAllCaps="true" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
