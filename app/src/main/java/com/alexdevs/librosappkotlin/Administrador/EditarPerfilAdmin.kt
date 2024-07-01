@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.ProgressDialog
 import android.content.ContentValues
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -15,6 +16,7 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.alexdevs.librosappkotlin.R
@@ -52,7 +54,7 @@ class EditarPerfilAdmin : AppCompatActivity() {
         progressDialog.setTitle("Cargando...")
         progressDialog.setCanceledOnTouchOutside(false)
 
-        binding.IbRegresar.setOnClickListener{
+        binding.IbRegresar.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
 
@@ -81,10 +83,22 @@ class EditarPerfilAdmin : AppCompatActivity() {
             val id = item.itemId
             if (id == 0) {
                 //Elegir la opción de la galería
-                seleccionarImagenGaleria()
+                if (ContextCompat.checkSelfPermission(
+                        applicationContext,
+                        android.Manifest.permission.READ_EXTERNAL_STORAGE
+                    ) == PackageManager.PERMISSION_GRANTED
+                ) {
+                    seleccionarImagenGaleria()
+                } else {
+                    permisoGaleria.launch(android.Manifest.permission.READ_EXTERNAL_STORAGE)
+                }
             } else if (id == 1) {
                 //Elegir la opción de la cámara
-                tomarFotografia()
+                if(ContextCompat.checkSelfPermission(applicationContext, android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED){
+                    tomarFotografia()
+                }else{
+                    permisoCamara.launch(android.Manifest.permission.CAMERA)
+                }
             }
             true
         }
@@ -116,6 +130,13 @@ class EditarPerfilAdmin : AppCompatActivity() {
             }
         }
     )
+    private val permisoCamara = registerForActivityResult(ActivityResultContracts.RequestPermission()) {Permiso_concedido ->
+        if (Permiso_concedido) {
+            tomarFotografia()
+        } else {
+            Toast.makeText(applicationContext, "Permiso denegado", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     private fun seleccionarImagenGaleria() {
         val intent = Intent(Intent.ACTION_PICK)
@@ -141,6 +162,15 @@ class EditarPerfilAdmin : AppCompatActivity() {
             }
         }
     )
+
+    private val permisoGaleria =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { Permiso_concedido ->
+            if (Permiso_concedido) {
+                seleccionarImagenGaleria()
+            } else {
+                Toast.makeText(applicationContext, "Permiso denegado", Toast.LENGTH_SHORT).show()
+            }
+        }
 
     private var nombres = ""
     private fun validarInformacion() {
