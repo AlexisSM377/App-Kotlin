@@ -97,6 +97,13 @@
     <string name="Et_password_confirm_cliente">Repetir Contraseña</string>
     <string name="Btn_registrar_cliente">Registrarme</string>
 
+    <string name="Menu_dashboard_cl">Dashboard</string>
+    <string name="Menu_favoritos_cl">Favoritos</string>
+    <string name="Menu_ia_cl">ChatIA</string>
+    <string name="Menu_cuenta_cl">Cuenta</string>
+    
+    <string name="Titulo_RL_Cliente">Titulo</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
