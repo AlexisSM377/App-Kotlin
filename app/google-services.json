@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "530485053903",
+    "firebase_url": "https://app-libros-kotlin-6f273-default-rtdb.firebaseio.com",
     "project_id": "app-libros-kotlin-6f273",
     "storage_bucket": "app-libros-kotlin-6f273.appspot.com"
   },
@@ -12,7 +13,20 @@
           "package_name": "com.alexdevs.librosappkotlin"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "530485053903-o8l5sdkn2ffemj6f0fa25oifkfcffvu0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alexdevs.librosappkotlin",
+            "certificate_hash": "a32140ea9fa253c43efbc7356a2346f9ccf6f243"
+          }
+        },
+        {
+          "client_id": "530485053903-mf6ctchudh1hhui5vf583qbi60hhe321.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDw_He7EDTsXu-ow0We4GZNqt19NsdzVXs"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "530485053903-mf6ctchudh1hhui5vf583qbi60hhe321.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

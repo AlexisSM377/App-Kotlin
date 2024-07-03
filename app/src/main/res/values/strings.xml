@@ -101,11 +101,19 @@
     <string name="Menu_favoritos_cl">Favoritos</string>
     <string name="Menu_ia_cl">ChatIA</string>
     <string name="Menu_cuenta_cl">Cuenta</string>
-    
+
     <string name="Titulo_RL_Cliente">Titulo</string>
     <string name="CerrarSesionCliente">Cerrar Sesión</string>
 
+    <string name="Txt_login_cliente">Login Cliente</string>
+    <string name="Btn_login_cliente">Ingresar</string>
+
+    <!-- Login Google -->
+    <string name="Txt_alternativa">Alternativa</string>
+    <string name="Btn_login_google">Ingresar con Google</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_web_client_id">530485053903-o8l5sdkn2ffemj6f0fa25oifkfcffvu0.apps.googleusercontent.com</string>
 
 </resources>
