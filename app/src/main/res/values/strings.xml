@@ -112,6 +112,7 @@
     <string name="Txt_alternativa">Alternativa</string>
     <string name="Btn_login_google">Ingresar con Google</string>
     <string name="Item_nombre_cat_c">Nombre categoría</string>
+    <string name="Et_buscar_libro_cliente">Buscar Libro</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

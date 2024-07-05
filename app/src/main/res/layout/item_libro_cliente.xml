@@ -36,7 +36,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_toStartOf="@+id/Ib_mas_opciones"
             android:layout_toEndOf="@+id/RLPdf"
             android:maxLines="1"
             android:text="@string/Txt_titulo_libro_item"
@@ -53,7 +52,8 @@
             android:layout_marginTop="5dp"
             android:layout_toEndOf="@+id/RLPdf"
             android:maxLines="4"
-            android:text="@string/Txt_descripcion_libro_item" />
+            android:text="@string/Txt_descripcion_libro_item"
+            android:fontFamily="@font/poppins_medium"/>
 
         <TextView
             android:id="@+id/Txt_categoria_libro_admin"
@@ -62,7 +62,8 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:maxLines="1"
-            android:text="@string/Txt_categoria_libro_admin" />
+            android:text="@string/Txt_categoria_libro_admin"
+            android:fontFamily="@font/montserrat_semi_bold"/>
 
 
         <TextView
@@ -72,7 +73,8 @@
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@+id/RLPdf"
             android:maxLines="1"
-            android:text="@string/Txt_tamaño_libro_admin" />
+            android:text="@string/Txt_tamaño_libro_admin"
+            android:fontFamily="@font/montserrat_semi_bold"/>
 
         <TextView
             android:id="@+id/Txt_fecha_libro_admin"
@@ -83,16 +85,8 @@
             android:layout_toEndOf="@+id/Txt_tamaño_libro_admin"
             android:maxLines="1"
             android:text="@string/Txt_fecha_libro_admin"
-            android:textAlignment="center" />
-
-        <ImageButton
-            android:id="@+id/Ib_mas_opciones"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:background="@android:color/transparent"
-            android:padding="5dp"
-            android:src="@drawable/ic_mas_opciones" />
+            android:textAlignment="center"
+            android:fontFamily="@font/montserrat_semi_bold"/>
 
     </RelativeLayout>
 

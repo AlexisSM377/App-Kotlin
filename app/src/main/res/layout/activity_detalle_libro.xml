@@ -25,7 +25,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/Txt_detalle_libro" />
+            android:text="@string/Txt_detalle_libro"
+            android:fontFamily="@font/montserrat_bold"/>
 
         <View
             android:layout_width="match_parent"
