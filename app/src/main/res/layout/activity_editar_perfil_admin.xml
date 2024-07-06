@@ -27,6 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:fontFamily="@font/poppins_semi_bold"
             android:text="@string/Txt_editar_perfil_admin" />
 
         <View
@@ -87,6 +88,7 @@
                     android:id="@+id/Et_a_nombres"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
                     android:hint="@string/Et_a_nombres"
                     android:inputType="textPersonName|textCapWords" />
 
@@ -99,6 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/TILNombres"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_semi_bold"
                 android:text="@string/Btn_actualizar_info"
                 android:textAllCaps="true" />
 

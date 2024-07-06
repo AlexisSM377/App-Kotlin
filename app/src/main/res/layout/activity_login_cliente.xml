@@ -27,6 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:fontFamily="@font/poppins_semi_bold"
             android:text="@string/Txt_login_cliente" />
 
         <View
@@ -62,6 +63,7 @@
                     android:id="@+id/Et_email_cliente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
                     android:hint="@string/Et_email_cliente"
                     android:inputType="textEmailAddress" />
 
@@ -81,6 +83,7 @@
                     android:id="@+id/Et_password_cliente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
                     android:hint="@string/Et_password_cliente"
                     android:inputType="textPassword" />
 
@@ -92,31 +95,34 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
+                android:fontFamily="@font/poppins_semi_bold"
                 android:text="@string/Btn_login_cliente"
                 android:textAllCaps="true" />
 
             <View
-                android:layout_marginTop="10dp"
-                android:background="#cccccc"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"/>
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="#cccccc" />
 
             <TextView
-                android:text="@string/Txt_alternativa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/Txt_alternativa" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/Btn_login_google"
-                android:text="@string/Btn_login_google"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:text="@string/Btn_login_google"
                 android:textAllCaps="true"
-                app:icon="@drawable/logo_google"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"/>
+                app:icon="@drawable/logo_google" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

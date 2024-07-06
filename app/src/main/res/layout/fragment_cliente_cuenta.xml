@@ -21,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/CerrarSesionCliente"
+            android:fontFamily="@font/poppins_medium"
             app:drawableEndCompat="@drawable/ic_siguiente"
             app:drawableStartCompat="@drawable/ic_cerrar_sesion" />
 

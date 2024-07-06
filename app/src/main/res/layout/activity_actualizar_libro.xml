@@ -25,7 +25,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/Txt_actualizar_libro" />
+            android:text="@string/Txt_actualizar_libro"
+            android:fontFamily="@font/poppins_semi_bold"/>
 
         <View
             android:layout_width="match_parent"
@@ -64,6 +65,7 @@
                 android:drawableStart="@drawable/ic_pdf"
                 android:drawablePadding="10dp"
                 android:hint="@string/Et_titulo_libro"
+                android:fontFamily="@font/poppins_medium"
                 android:inputType="textPersonName|textCapWords"
                 android:padding="10dp" />
 
@@ -83,6 +85,7 @@
                 android:drawableStart="@drawable/ic_pdf"
                 android:drawablePadding="10dp"
                 android:hint="@string/Et_descripcion_libro"
+                android:fontFamily="@font/poppins_medium"
                 android:inputType="textPersonName|textCapWords"
                 android:padding="10dp" />
 
@@ -99,6 +102,7 @@
             android:drawablePadding="10dp"
             android:gravity="center_vertical"
             android:hint="@string/Tv_categoria_libro"
+            android:fontFamily="@font/poppins_medium"
             android:padding="10dp"
             android:textColor="#000"
             app:drawableEndCompat="@drawable/ic_abajo"
@@ -111,6 +115,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:text="@string/Btn_actualizar_libro"
+            android:fontFamily="@font/poppins_semi_bold"
             android:textAllCaps="true" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>

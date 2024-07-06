@@ -38,11 +38,10 @@
             android:layout_marginStart="5dp"
             android:layout_toStartOf="@+id/Ib_mas_opciones"
             android:layout_toEndOf="@+id/RLPdf"
+            android:fontFamily="@font/poppins_semi_bold"
             android:maxLines="1"
             android:text="@string/Txt_titulo_libro_item"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/poppins_semi_bold"/>
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Txt_descripcion_libro_item"
@@ -52,6 +51,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:layout_toEndOf="@+id/RLPdf"
+            android:fontFamily="@font/poppins_medium"
             android:maxLines="4"
             android:text="@string/Txt_descripcion_libro_item" />
 
@@ -61,6 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:fontFamily="@font/montserrat_semi_bold"
             android:maxLines="1"
             android:text="@string/Txt_categoria_libro_admin" />
 
@@ -71,6 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@+id/RLPdf"
+            android:fontFamily="@font/montserrat_semi_bold"
             android:maxLines="1"
             android:text="@string/Txt_tamaño_libro_admin" />
 
@@ -81,6 +83,7 @@
             android:layout_alignParentBottom="true"
             android:layout_toStartOf="@+id/Txt_categoria_libro_admin"
             android:layout_toEndOf="@+id/Txt_tamaño_libro_admin"
+            android:fontFamily="@font/montserrat_semi_bold"
             android:maxLines="1"
             android:text="@string/Txt_fecha_libro_admin"
             android:textAlignment="center" />

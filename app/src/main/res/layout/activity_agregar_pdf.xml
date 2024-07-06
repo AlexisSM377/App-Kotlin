@@ -26,6 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:fontFamily="@font/poppins_semi_bold"
             android:text="@string/Txt_agregar_libro" />
 
         <View
@@ -79,6 +80,7 @@
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_pdf"
                 android:drawablePadding="10dp"
+                android:fontFamily="@font/poppins_medium"
                 android:hint="@string/Et_titulo_libro"
                 android:inputType="textPersonName|textCapWords"
                 android:padding="10dp" />
@@ -98,6 +100,7 @@
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_pdf"
                 android:drawablePadding="10dp"
+                android:fontFamily="@font/poppins_medium"
                 android:hint="@string/Et_descripcion_libro"
                 android:inputType="textPersonName|textCapWords"
                 android:padding="10dp" />
@@ -113,9 +116,10 @@
             android:layout_marginEnd="30dp"
             android:background="@drawable/forma_edittext"
             android:drawablePadding="10dp"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center_vertical"
-            android:padding="10dp"
             android:hint="@string/Tv_categoria_libro"
+            android:padding="10dp"
             android:textColor="#000"
             app:drawableEndCompat="@drawable/ic_abajo"
             app:drawableStartCompat="@drawable/ic_categoria" />
@@ -126,6 +130,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_semi_bold"
             android:text="@string/Btn_subir_libro"
             android:textAllCaps="true" />
 

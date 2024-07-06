@@ -25,7 +25,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/Txt_agregar_categoria" />
+            android:text="@string/Txt_agregar_categoria"
+            android:fontFamily="@font/poppins_semi_bold"/>
 
         <View
             android:layout_width="match_parent"
@@ -54,6 +55,7 @@
                 android:drawableStart="@drawable/ic_categoria"
                 android:drawablePadding="10dp"
                 android:hint="@string/Et_categoria"
+                android:fontFamily="@font/poppins_medium"
                 android:inputType="textPersonName|textCapSentences" />
 
             <com.google.android.material.button.MaterialButton
@@ -62,7 +64,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:text="@string/Agregar_categoria_BD" />
+                android:text="@string/Agregar_categoria_BD"
+                android:fontFamily="@font/poppins_semi_bold"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 

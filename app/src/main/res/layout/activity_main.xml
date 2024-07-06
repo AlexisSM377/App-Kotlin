@@ -15,6 +15,7 @@
         <TextView
             android:id="@+id/Titulo_RL_Admin"
             android:text="@string/Titulo_RL_Admin"
+            android:fontFamily="@font/poppins_semi_bold"
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>

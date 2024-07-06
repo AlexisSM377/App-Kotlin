@@ -23,86 +23,91 @@
         <!--Nombre-->
         <TextView
             android:id="@+id/nombre_admin"
-            android:text="@string/nombre_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/img_perfil"
             android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/nombre_admin" />
 
         <TextView
             android:id="@+id/Txt_nombre_admin"
-            android:text="@string/Txt_nombre_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/img_perfil"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:text="@string/Txt_nombre_admin" />
 
         <!--Email-->
         <TextView
             android:id="@+id/email_admin"
-            android:text="@string/email_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/nombre_admin"
             android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/email_admin" />
 
         <TextView
             android:id="@+id/Txt_email_admin"
-            android:text="@string/Txt_email_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/nombre_admin"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:text="@string/Txt_email_admin" />
 
         <!--Tiempo-->
         <TextView
             android:id="@+id/tiempo_registro_admin"
-            android:text="@string/tiempo_registro_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/email_admin"
             android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/tiempo_registro_admin" />
 
         <TextView
             android:id="@+id/Txt_tiempo_registro_admin"
-            android:text="@string/Txt_tiempo_registro_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/email_admin"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:text="@string/Txt_tiempo_registro_admin" />
         <!--Rol-->
         <TextView
             android:id="@+id/rol_admin"
-            android:text="@string/rol_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/tiempo_registro_admin"
             android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/rol_admin" />
 
         <TextView
             android:id="@+id/Txt_rol_admin"
-            android:text="@string/Txt_rol_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/tiempo_registro_admin"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:text="@string/Txt_rol_admin" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/rol_admin"
             android:layout_marginTop="20dp"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:orientation="vertical">
 
             <TextView
-                android:text="@string/Txt_mas_opciones"
-                android:layout_marginBottom="5dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/Txt_mas_opciones" />
 
             <!--Editar Informacion-->
             <com.google.android.material.card.MaterialCardView
@@ -120,10 +125,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    app:drawableStartCompat="@drawable/ic_editar_info"
-                    app:drawableEndCompat="@drawable/ic_siguiente"
                     android:drawablePadding="10dp"
-                    android:text="@string/EditarPerfilAdmin"/>
+                    android:fontFamily="@font/montserrat_semi_bold"
+                    android:text="@string/EditarPerfilAdmin"
+                    app:drawableEndCompat="@drawable/ic_siguiente"
+                    app:drawableStartCompat="@drawable/ic_editar_info" />
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -143,6 +149,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawablePadding="10dp"
+                    android:fontFamily="@font/montserrat_semi_bold"
                     android:text="@string/CerrarSesionAdmin"
                     app:drawableEndCompat="@drawable/ic_siguiente"
                     app:drawableStartCompat="@drawable/ic_cerrar_sesion" />

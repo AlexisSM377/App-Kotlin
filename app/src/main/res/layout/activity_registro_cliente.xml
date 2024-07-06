@@ -25,6 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:fontFamily="@font/poppins_semi_bold"
             android:text="@string/Txt_registrar_cliente" />
 
         <View
@@ -59,6 +60,7 @@
                     android:id="@+id/Et_nombres_cliente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
                     android:hint="@string/Et_nombres_cliente"
                     android:inputType="textPersonName|textCapWords" />
 
@@ -78,6 +80,7 @@
                     android:id="@+id/Et_edad_cliente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
                     android:hint="@string/Et_edad_cliente"
                     android:inputType="textPersonName|textCapWords" />
 
@@ -97,6 +100,7 @@
                     android:id="@+id/Et_email_cliente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
                     android:hint="@string/Et_email_cliente"
                     android:inputType="textPersonName|textCapWords" />
 
@@ -117,6 +121,7 @@
                     android:id="@+id/Et_password_cliente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
                     android:hint="@string/Et_password_cliente"
                     android:inputType="textPassword" />
 
@@ -137,6 +142,7 @@
                     android:id="@+id/Et_password_confirm_cliente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
                     android:hint="@string/Et_password_confirm_cliente"
                     android:inputType="textPassword" />
 
@@ -149,6 +155,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
+                android:fontFamily="@font/poppins_semi_bold"
                 android:text="@string/Btn_registrar_cliente"
                 android:textAllCaps="true" />
 
@@ -159,6 +166,7 @@
                 android:layout_gravity="end"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
+                android:fontFamily="@font/poppins_medium"
                 android:text="@string/Txt_tengo_cuenta"
                 android:textStyle="bold" />
 

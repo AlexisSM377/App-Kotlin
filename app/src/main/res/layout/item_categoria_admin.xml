@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
+            android:fontFamily="@font/poppins_semi_bold"
             android:text="@string/Item_nombre_cat_a" />
 
         <ImageButton
