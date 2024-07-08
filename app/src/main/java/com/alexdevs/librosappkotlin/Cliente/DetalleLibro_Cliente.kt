@@ -43,6 +43,8 @@ class DetalleLibro_Cliente : AppCompatActivity() {
 
         idLibro = intent.getStringExtra("idLibro")!!
 
+        MisFunciones.incrementarVistas(idLibro)
+
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Espere un momento")
         progressDialog.setCanceledOnTouchOutside(false)
@@ -103,6 +105,7 @@ class DetalleLibro_Cliente : AppCompatActivity() {
 
             Toast.makeText(applicationContext, "Libro descargado exitosamente", Toast.LENGTH_SHORT).show()
             progressDialog.dismiss()
+            incrementarNumDesc()
 
         } catch (e: Exception) {
             Toast.makeText(applicationContext, "Error al descargar el libro ${e.message}", Toast.LENGTH_SHORT).show()
@@ -146,6 +149,32 @@ class DetalleLibro_Cliente : AppCompatActivity() {
                     binding.descargasD.text = contadorDescargas
                     binding.fechaD.text = fecha
 
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
+    }
+
+    private fun incrementarNumDesc(){
+        val ref = FirebaseDatabase.getInstance().getReference("Libros")
+        ref.child(idLibro)
+            .addListenerForSingleValueEvent(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    var contDescarActual = "${snapshot.child("contadorDescargas").value}"
+
+                    if (contDescarActual == "" || contDescarActual == "null"){
+                        contDescarActual = "0"
+                    }
+                    val nuevaDesc = contDescarActual.toLong() + 1
+
+                    val hashMap = HashMap<String, Any>()
+                    hashMap["contadorDescargas"] = nuevaDesc
+
+                    val BDRef = FirebaseDatabase.getInstance().getReference("Libros")
+                    BDRef.child(idLibro)
+                        .updateChildren(hashMap)
                 }
 
                 override fun onCancelled(error: DatabaseError) {
