@@ -17,6 +17,7 @@ import com.alexdevs.librosappkotlin.Administrador.MisFunciones
 import com.alexdevs.librosappkotlin.LeerLibro
 import com.alexdevs.librosappkotlin.R
 import com.alexdevs.librosappkotlin.databinding.ActivityDetalleLibroClienteBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -32,7 +33,11 @@ class DetalleLibro_Cliente : AppCompatActivity() {
     private var tituloLibro = ""
     private var urlLibro = ""
 
+    private lateinit var firebaseAuth: FirebaseAuth
+
     private lateinit var progressDialog: ProgressDialog
+
+    private var esFavorito = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +53,8 @@ class DetalleLibro_Cliente : AppCompatActivity() {
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Espere un momento")
         progressDialog.setCanceledOnTouchOutside(false)
+
+        firebaseAuth = FirebaseAuth.getInstance()
 
         binding.IbRegresar.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
@@ -67,6 +74,15 @@ class DetalleLibro_Cliente : AppCompatActivity() {
             }
         }
 
+        binding.BtnFavoritosLibroC.setOnClickListener {
+            if (esFavorito){
+                eliminarFavoritos()
+            }else{
+                agregarFavoritos()
+            }
+        }
+
+        comprobarFavoritos()
         cargarDetalleLibro()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -74,6 +90,68 @@ class DetalleLibro_Cliente : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
+
+    private fun comprobarFavoritos() {
+        val ref = FirebaseDatabase.getInstance().getReference("Usuarios")
+        ref.child(firebaseAuth.uid!!).child("Favoritos").child(idLibro)
+            .addValueEventListener(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    esFavorito = snapshot.exists()
+                    if (esFavorito){
+                        binding.BtnFavoritosLibroC.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                            0,
+                            R.drawable.ic_agregar_favorito,
+                            0,
+                            0
+                        )
+                        binding.BtnFavoritosLibroC.text = "Eliminar"
+                    }else{
+                        binding.BtnFavoritosLibroC.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                            0,
+                            R.drawable.ic_no_favorito,
+                            0,
+                            0
+                        )
+                        binding.BtnFavoritosLibroC.text = "Favoritos"
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
+    }
+
+    private fun agregarFavoritos() {
+        val tiempo = System.currentTimeMillis()
+
+        val hashMap = HashMap<String, Any>()
+        hashMap["id"] = idLibro
+        hashMap["tiempo"] = tiempo
+
+        val ref = FirebaseDatabase.getInstance().getReference("Usuarios")
+        ref.child(firebaseAuth.uid!!).child("Favoritos").child(idLibro)
+            .setValue(hashMap)
+            .addOnSuccessListener {
+                Toast.makeText(applicationContext, "Libro añadido a favoritos", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e->
+                Toast.makeText(applicationContext, "Error al añadir el libro a favoritos ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+
+    }
+
+    private fun eliminarFavoritos() {
+        val ref = FirebaseDatabase.getInstance().getReference("Usuarios")
+        ref.child(firebaseAuth.uid!!).child("Favoritos").child(idLibro)
+            .removeValue()
+            .addOnFailureListener {
+                Toast.makeText(applicationContext, "Se elimino el libro de favoritos", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {e->
+                Toast.makeText(applicationContext, "No se elemino el libro de favoritos debido a ${e.message}", Toast.LENGTH_SHORT).show()
+            }
     }
 
     private fun descargarLibro() {
