@@ -117,6 +117,10 @@
     <string name="Btn_leer_libro_c">Leer</string>
     <string name="Btn_descargar_libro_c">Descargar</string>
 
+    <string name="Btn_mas_vistos">Más vistos</string>
+    <string name="Btn_mas_descargados">Más descargados</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="default_web_client_id">530485053903-o8l5sdkn2ffemj6f0fa25oifkfcffvu0.apps.googleusercontent.com</string>
