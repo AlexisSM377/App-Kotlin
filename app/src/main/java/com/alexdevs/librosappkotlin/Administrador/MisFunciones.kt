@@ -10,6 +10,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import com.github.barteksc.pdfviewer.PDFView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -159,6 +160,19 @@ class MisFunciones : Application() {
                         TODO("Not yet implemented")
                     }
                 })
+        }
+
+        fun eliminarFavoritos(context: Context, idLibro: String) {
+            val firebaseAuth = FirebaseAuth.getInstance()
+            val ref = FirebaseDatabase.getInstance().getReference("Usuarios")
+            ref.child(firebaseAuth.uid!!).child("Favoritos").child(idLibro)
+                .removeValue()
+                .addOnFailureListener {
+                    Toast.makeText(context, "Se elimino el libro de favoritos", Toast.LENGTH_SHORT).show()
+                }
+                .addOnFailureListener {e->
+                    Toast.makeText(context, "No se elemino el libro de favoritos debido a ${e.message}", Toast.LENGTH_SHORT).show()
+                }
         }
     }
 }
