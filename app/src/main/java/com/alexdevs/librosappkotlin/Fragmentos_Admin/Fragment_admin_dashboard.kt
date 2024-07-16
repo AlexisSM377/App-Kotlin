@@ -12,8 +12,7 @@ import android.view.ViewGroup
 import com.alexdevs.librosappkotlin.Administrador.AdaptadorCategoria
 import com.alexdevs.librosappkotlin.Administrador.Agregar_Categoria
 import com.alexdevs.librosappkotlin.Administrador.Agregar_Pdf
-import com.alexdevs.librosappkotlin.Administrador.ModeloCategoria
-import com.alexdevs.librosappkotlin.R
+import com.alexdevs.librosappkotlin.Modelos.ModeloCategoria
 import com.alexdevs.librosappkotlin.databinding.FragmentAdminDashboardBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError

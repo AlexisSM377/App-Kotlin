@@ -127,6 +127,10 @@
     <string name="Et_agregar_comentario">Escribe tu Comentario</string>
     <string name="Btn_comentario">Comentar</string>
 
+    <string name="Tv_nombre_c">Nombre cliente</string>
+    <string name="Tv_fecha_c">dd/MM/yyyy</string>
+    <string name="Tv_comentario_c">Comentario de usuario</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

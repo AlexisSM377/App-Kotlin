@@ -17,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.alexdevs.librosappkotlin.Administrador.Constantes
 import com.alexdevs.librosappkotlin.Administrador.MisFunciones
 import com.alexdevs.librosappkotlin.LeerLibro
+import com.alexdevs.librosappkotlin.Modelos.ModeloComentario
 import com.alexdevs.librosappkotlin.R
 import com.alexdevs.librosappkotlin.databinding.ActivityDetalleLibroClienteBinding
 import com.alexdevs.librosappkotlin.databinding.DialogAgregarComentarioBinding
@@ -41,6 +42,9 @@ class DetalleLibro_Cliente : AppCompatActivity() {
     private lateinit var progressDialog: ProgressDialog
 
     private var esFavorito = false
+
+    private lateinit var comentarioArrayList: ArrayList<ModeloComentario>
+    private lateinit var adaptadorComentario: AdaptadorComentario
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,12 +95,36 @@ class DetalleLibro_Cliente : AppCompatActivity() {
 
         comprobarFavoritos()
         cargarDetalleLibro()
+        listarComentarios()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
+
+    private fun listarComentarios() {
+        comentarioArrayList = ArrayList()
+
+        val ref = FirebaseDatabase.getInstance().getReference("Libros")
+        ref.child(idLibro).child("Comentarios")
+            .addValueEventListener(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    comentarioArrayList.clear()
+                    for (ds in snapshot.children){
+                        val modelo = ds.getValue(ModeloComentario::class.java)
+                        comentarioArrayList.add(modelo!!)
+                    }
+                    adaptadorComentario = AdaptadorComentario(this@DetalleLibro_Cliente, comentarioArrayList)
+                    binding.RvComentarios.adapter = adaptadorComentario
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
+
     }
 
     private var comentario = ""

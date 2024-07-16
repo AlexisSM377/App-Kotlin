@@ -1,4 +1,4 @@
-package com.alexdevs.librosappkotlin.Administrador
+package com.alexdevs.librosappkotlin.Modelos
 
 class ModeloCategoria {
 

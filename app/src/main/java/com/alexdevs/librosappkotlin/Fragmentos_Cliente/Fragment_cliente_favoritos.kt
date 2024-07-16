@@ -6,9 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.alexdevs.librosappkotlin.Administrador.Modelopdf
+import com.alexdevs.librosappkotlin.Modelos.Modelopdf
 import com.alexdevs.librosappkotlin.Cliente.AdaptadorPdfFavorito
-import com.alexdevs.librosappkotlin.R
 import com.alexdevs.librosappkotlin.databinding.FragmentClienteFavoritosBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot

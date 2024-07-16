@@ -239,6 +239,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:layout_marginTop="5dp"
                     android:text="@string/Txt_comentarios"
                     android:textStyle="italic|bold"
                     android:textSize="17sp"
@@ -254,6 +255,14 @@
                     android:background="@android:color/transparent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
+                
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/Rv_comentarios"
+                    android:layout_below="@+id/Ib_agregar_comentario"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/item_comentario"/>
 
             </RelativeLayout>
 

@@ -12,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
+import com.alexdevs.librosappkotlin.Modelos.ModeloCategoria
 import com.alexdevs.librosappkotlin.databinding.ItemCategoriaAdminBinding
 import com.google.firebase.database.FirebaseDatabase
 
