@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.alexdevs.librosappkotlin.Administrador.MisFunciones
+import com.alexdevs.librosappkotlin.Cliente.EditarPerfilCliente
 import com.alexdevs.librosappkotlin.Elegir_rol
 import com.alexdevs.librosappkotlin.R
 import com.alexdevs.librosappkotlin.databinding.FragmentClienteCuentaBinding
@@ -43,6 +44,10 @@ class Fragment_cliente_cuenta : Fragment() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         cargarInformacion()
+
+        binding.EditarPerfilCliente.setOnClickListener {
+            startActivity(Intent(mContext, EditarPerfilCliente::class.java))
+        }
 
         binding.CerrarSesionCliente.setOnClickListener {
             firebaseAuth.signOut()

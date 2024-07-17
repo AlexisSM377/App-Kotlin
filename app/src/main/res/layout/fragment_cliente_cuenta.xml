@@ -139,6 +139,29 @@
                 android:fontFamily="@font/montserrat_bold"
                 android:text="@string/Txt_mas_opciones" />
 
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?selectableItemBackground"
+                app:cardCornerRadius="10dp"
+                app:contentPadding="10dp">
+
+                <TextView
+                    android:id="@+id/EditarPerfilCliente"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:drawablePadding="10dp"
+                    android:fontFamily="@font/montserrat_semi_bold"
+                    android:text="@string/EditarPerfilCliente"
+                    app:drawableEndCompat="@drawable/ic_siguiente"
+                    app:drawableStartCompat="@drawable/ic_editar_info" />
+
+            </com.google.android.material.card.MaterialCardView>
+
             <!--Cerrar sesión-->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
@@ -153,9 +176,11 @@
                 <TextView
                     android:id="@+id/CerrarSesionCliente"
                     android:layout_width="match_parent"
+                    android:drawablePadding="10dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_height="wrap_content"
                     android:text="@string/CerrarSesionCliente"
-                    android:fontFamily="@font/poppins_medium"
+                    android:fontFamily="@font/montserrat_semi_bold"
                     app:drawableEndCompat="@drawable/ic_siguiente"
                     app:drawableStartCompat="@drawable/ic_cerrar_sesion" />
 
