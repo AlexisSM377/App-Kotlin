@@ -1,8 +1,7 @@
 package com.alexdevs.librosappkotlin.Cliente
 
 import android.widget.Filter
-import com.alexdevs.librosappkotlin.Administrador.AdaptadorCategoria
-import com.alexdevs.librosappkotlin.Administrador.ModeloCategoria
+import com.alexdevs.librosappkotlin.Modelos.ModeloCategoria
 
 class FiltrarCategoria_Cliente : Filter {
 

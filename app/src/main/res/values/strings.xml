@@ -121,6 +121,34 @@
 
     <string name="Btn_mas_vistos">Más vistos</string>
     <string name="Btn_mas_descargados">Más descargados</string>
+    <string name="Txt_comentarios">Comentarios</string>
+
+    <string name="Txt_agregar_comentario">Agregar Comentario</string>
+    <string name="Et_agregar_comentario">Escribe tu Comentario</string>
+    <string name="Btn_comentario">Comentar</string>
+
+    <string name="Tv_nombre_c">Nombre cliente</string>
+    <string name="Tv_fecha_c">dd/MM/yyyy</string>
+    <string name="Tv_comentario_c">Comentario de usuario</string>
+
+    <string name="nombres_cliente">Nombre: </string>
+    <string name="Txt_nombre_cliente"> -- </string>
+    <string name="edad_cliente">Edad: </string>
+    <string name="Txt_edad_cliente"> -- </string>
+    <string name="email_cliente">Email: </string>
+    <string name="Txt_email_cliente"> -- </string>
+    <string name="tiempo_registro_cliente">Miembro desde: </string>
+    <string name="Txt_tiempo_registro_cliente"> -- </string>
+    <string name="rol_cliente">Rol: </string>
+    <string name="Txt_rol_cliente"> -- </string>
+
+    <string name="EditarPerfilCliente">Editar Perfil</string>
+
+    <string name="Txt_editar_perfil_cliente">Editar Perfil</string>
+
+    <string name="Et_c_nombre">Nombres</string>
+    <string name="Et_c_edad">Edad</string>
+
 
 
     <!-- TODO: Remove or change this placeholder text -->

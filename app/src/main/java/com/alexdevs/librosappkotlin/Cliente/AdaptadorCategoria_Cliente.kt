@@ -9,7 +9,7 @@ import android.widget.Filter
 import android.widget.Filterable
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.alexdevs.librosappkotlin.Administrador.ModeloCategoria
+import com.alexdevs.librosappkotlin.Modelos.ModeloCategoria
 import com.alexdevs.librosappkotlin.databinding.ItemCategoriaClienteBinding
 
 class AdaptadorCategoria_Cliente : RecyclerView.Adapter<AdaptadorCategoria_Cliente.viewHolder>, Filterable {

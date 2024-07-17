@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.alexdevs.librosappkotlin.Modelos.ModeloCategoria
 import com.alexdevs.librosappkotlin.R
 import com.alexdevs.librosappkotlin.databinding.ActivityAgregarPdfBinding
 import com.google.android.gms.tasks.Task

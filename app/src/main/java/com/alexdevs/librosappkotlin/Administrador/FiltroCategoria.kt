@@ -1,6 +1,7 @@
 package com.alexdevs.librosappkotlin.Administrador
 
 import android.widget.Filter
+import com.alexdevs.librosappkotlin.Modelos.ModeloCategoria
 
 class FiltroCategoria : Filter {
 

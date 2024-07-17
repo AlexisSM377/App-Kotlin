@@ -10,11 +10,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.alexdevs.librosappkotlin.Administrador.ModeloCategoria
+import com.alexdevs.librosappkotlin.Modelos.ModeloCategoria
 import com.alexdevs.librosappkotlin.Cliente.AdaptadorCategoria_Cliente
 import com.alexdevs.librosappkotlin.Cliente.TopDescargas
 import com.alexdevs.librosappkotlin.Cliente.TopVistas
-import com.alexdevs.librosappkotlin.R
 import com.alexdevs.librosappkotlin.databinding.FragmentClienteDashboardBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError

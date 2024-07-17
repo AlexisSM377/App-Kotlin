@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.alexdevs.librosappkotlin.Administrador.MisFunciones
-import com.alexdevs.librosappkotlin.Administrador.Modelopdf
+import com.alexdevs.librosappkotlin.Modelos.Modelopdf
 import com.alexdevs.librosappkotlin.databinding.ItemLibroFavoritoBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError

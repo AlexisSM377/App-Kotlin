@@ -1,7 +1,7 @@
 package com.alexdevs.librosappkotlin.Cliente
 
 import android.widget.Filter
-import com.alexdevs.librosappkotlin.Administrador.Modelopdf
+import com.alexdevs.librosappkotlin.Modelos.Modelopdf
 
 class FiltroPdfCliente : Filter {
 

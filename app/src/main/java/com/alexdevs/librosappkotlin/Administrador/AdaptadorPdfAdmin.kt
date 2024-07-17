@@ -10,6 +10,7 @@ import android.widget.Filterable
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
+import com.alexdevs.librosappkotlin.Modelos.Modelopdf
 import com.alexdevs.librosappkotlin.databinding.ItemLibroAdminBinding
 
 class AdaptadorPdfAdmin : RecyclerView.Adapter<AdaptadorPdfAdmin.HolderPdfAdmin>, Filterable {

@@ -8,9 +8,8 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
-import com.alexdevs.librosappkotlin.Administrador.FiltroPdfAdmin
 import com.alexdevs.librosappkotlin.Administrador.MisFunciones
-import com.alexdevs.librosappkotlin.Administrador.Modelopdf
+import com.alexdevs.librosappkotlin.Modelos.Modelopdf
 import com.alexdevs.librosappkotlin.databinding.ItemLibroClienteBinding
 
 class AdaptadorPdfCliente : RecyclerView.Adapter<AdaptadorPdfCliente.HolderPdfCliente>, Filterable {

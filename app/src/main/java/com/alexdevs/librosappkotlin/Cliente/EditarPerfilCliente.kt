@@ -1,4 +1,4 @@
-package com.alexdevs.librosappkotlin.Administrador
+package com.alexdevs.librosappkotlin.Cliente
 
 import android.app.Activity
 import android.app.ProgressDialog
@@ -20,7 +20,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.alexdevs.librosappkotlin.R
-import com.alexdevs.librosappkotlin.databinding.ActivityEditarPerfilAdminBinding
+import com.alexdevs.librosappkotlin.databinding.ActivityEditarPerfilClienteBinding
 import com.bumptech.glide.Glide
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
@@ -30,9 +30,10 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 
-class EditarPerfilAdmin : AppCompatActivity() {
+class EditarPerfilCliente : AppCompatActivity() {
 
-    private lateinit var binding: ActivityEditarPerfilAdminBinding
+
+    private lateinit var binding: ActivityEditarPerfilClienteBinding
 
     private lateinit var firebaseAuth: FirebaseAuth
 
@@ -44,27 +45,27 @@ class EditarPerfilAdmin : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        binding = ActivityEditarPerfilAdminBinding.inflate(layoutInflater)
+        binding = ActivityEditarPerfilClienteBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        progressDialog = ProgressDialog(this)
+        progressDialog.setTitle("Espere un momento..")
+        progressDialog.setCanceledOnTouchOutside(false)
 
         firebaseAuth = FirebaseAuth.getInstance()
 
         cargarInformacion()
 
-        progressDialog = ProgressDialog(this)
-        progressDialog.setTitle("Cargando...")
-        progressDialog.setCanceledOnTouchOutside(false)
-
         binding.IbRegresar.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
 
-        binding.FbCambiarImg.setOnClickListener {
-            mostrarOpciones()
-        }
-
         binding.BtnActualizarInfo.setOnClickListener {
             validarInformacion()
+        }
+
+        binding.FABCambiarImg.setOnClickListener {
+            mostrarOpciones()
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -74,8 +75,73 @@ class EditarPerfilAdmin : AppCompatActivity() {
         }
     }
 
+    private var nombres = ""
+    private var edad = ""
+    private fun validarInformacion() {
+        nombres = binding.EtCNombres.text.toString().trim()
+        edad = binding.EtCEdad.text.toString().trim()
+
+        if (nombres.isEmpty()){
+            Toast.makeText(this, "Ingrese su nombre", Toast.LENGTH_SHORT).show()
+        }else if (edad.isEmpty()){
+            Toast.makeText(this, "Ingrese su edad", Toast.LENGTH_SHORT).show()
+        }else{
+            actualizarInformacion()
+        }
+    }
+
+    private fun actualizarInformacion() {
+        progressDialog.setMessage("Actualizando Información")
+        val hashMap = HashMap<String, Any>()
+        hashMap["nombre"] = "$nombres"
+        hashMap["edad"] = "$edad"
+
+        val ref = FirebaseDatabase.getInstance().getReference("Usuarios")
+        ref.child(firebaseAuth.uid!!)
+            .updateChildren(hashMap)
+            .addOnSuccessListener {
+                progressDialog.dismiss()
+                Toast.makeText(this, "Información actualizada", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e->
+                progressDialog.dismiss()
+                Toast.makeText(this, "No se pudo actualizar la información debido a ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+
+    }
+
+    private fun cargarInformacion() {
+        val ref = FirebaseDatabase.getInstance().getReference("Usuarios")
+        ref.child(firebaseAuth.uid!!)
+            .addValueEventListener(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val nombre = "${snapshot.child("nombre").value}"
+                    val edad = "${snapshot.child("edad").value}"
+                    val imagen = "${snapshot.child("imagen").value}"
+
+                    binding.EtCNombres.setText(nombre)
+                    binding.EtCEdad.setText(edad)
+
+                    //Cargar imagen
+
+                    try {
+                        Glide.with(this@EditarPerfilCliente)
+                            .load(imagen)
+                            .placeholder(R.drawable.ic_perfil)
+                            .into(binding.imgPerfilCliente)
+                    }catch (e:Exception){
+                        Toast.makeText(applicationContext, "${e.message}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
+    }
+
     private fun mostrarOpciones() {
-        val popupMenu = PopupMenu(this, binding.imgPerfilAdmin)
+        val popupMenu = PopupMenu(this, binding.imgPerfilCliente)
         popupMenu.menu.add(Menu.NONE, 0, 0, "Galeria")
         popupMenu.menu.add(Menu.NONE, 1, 1, "Camara")
         popupMenu.show()
@@ -120,7 +186,7 @@ class EditarPerfilAdmin : AppCompatActivity() {
     private val ARLCamara = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult(),
         ActivityResultCallback<ActivityResult> { resultado ->
-            if (resultado.resultCode == Activity.RESULT_OK) {
+            if (resultado.resultCode == RESULT_OK) {
                 subirImagenStorage()
             } else {
                 Toast.makeText(
@@ -131,7 +197,7 @@ class EditarPerfilAdmin : AppCompatActivity() {
             }
         }
     )
-    private val permisoCamara = registerForActivityResult(ActivityResultContracts.RequestPermission()) {Permiso_concedido ->
+    private val permisoCamara = registerForActivityResult(ActivityResultContracts.RequestPermission()) { Permiso_concedido ->
         if (Permiso_concedido) {
             tomarFotografia()
         } else {
@@ -172,16 +238,6 @@ class EditarPerfilAdmin : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Permiso denegado", Toast.LENGTH_SHORT).show()
             }
         }
-
-    private var nombres = ""
-    private fun validarInformacion() {
-        nombres = binding.EtANombres.text.toString().trim()
-        if (nombres.isEmpty()) {
-            Toast.makeText(applicationContext, "Ingrese un nuevo nombre", Toast.LENGTH_SHORT).show()
-        } else {
-            actualizarInformacion()
-        }
-    }
 
     private fun subirImagenStorage() {
         progressDialog.setMessage("Subiendo imagen a Storage")
@@ -230,56 +286,5 @@ class EditarPerfilAdmin : AppCompatActivity() {
                 ).show()
             }
 
-    }
-
-    private fun actualizarInformacion() {
-        progressDialog.setMessage("Actualizando información")
-        val hashMap: HashMap<String, Any> = HashMap()
-        hashMap["nombres"] = "$nombres"
-        val ref = FirebaseDatabase.getInstance().getReference("Usuarios")
-        ref.child(firebaseAuth.uid!!)
-            .updateChildren(hashMap)
-            .addOnSuccessListener {
-                progressDialog.dismiss()
-                Toast.makeText(applicationContext, "Información actualizada", Toast.LENGTH_SHORT)
-                    .show()
-            }
-            .addOnFailureListener { e ->
-                progressDialog.dismiss()
-                Toast.makeText(
-                    applicationContext,
-                    "Error al actualizar la información debido a: ${e.message}",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-
-    }
-
-    private fun cargarInformacion() {
-        val ref = FirebaseDatabase.getInstance().getReference("Usuarios")
-        ref.child(firebaseAuth.uid!!)
-            .addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    //Obtener los datos del usuario en tiempo real
-                    val nombre = "${snapshot.child("nombres").value}"
-                    val imagen = "${snapshot.child("imagen").value}"
-
-                    //Setaear los datos en la vista
-                    binding.EtANombres.setText(nombre)
-
-                    try {
-                        Glide.with(applicationContext)
-                            .load(imagen)
-                            .placeholder(R.drawable.ic_perfil)
-                            .into(binding.imgPerfilAdmin)
-                    } catch (e: Exception) {
-                        Toast.makeText(applicationContext, "$e.message", Toast.LENGTH_SHORT).show()
-                    }
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
-                }
-            })
     }
 }
