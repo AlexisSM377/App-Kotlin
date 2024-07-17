@@ -4,6 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.alexdevs.librosappkotlin.Administrador.MisFunciones
 import com.alexdevs.librosappkotlin.Modelos.ModeloComentario
@@ -52,6 +54,34 @@ class AdaptadorComentario : RecyclerView.Adapter<AdaptadorComentario.HolderComen
 
         cargarInformacion(modelo, holder)
 
+        holder.itemView.setOnClickListener { 
+            dialogEliminarComentario(modelo, holder)
+        }
+
+    }
+
+    private fun dialogEliminarComentario(modelo: ModeloComentario, holder: AdaptadorComentario.HolderComentario) {
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("Eliminar Comentario")
+            .setMessage("¿Desea eliminar el comentario?")
+            .setPositiveButton("Eliminar"){d,e->
+                val idLibro = modelo.idLibro
+                val idCom = modelo.id
+
+                val ref = FirebaseDatabase.getInstance().getReference("Libros")
+                ref.child(idLibro).child("Comentarios").child(idCom)
+                    .removeValue()
+                    .addOnSuccessListener {
+                        Toast.makeText(context, "Comentario eliminado", Toast.LENGTH_SHORT).show()
+                    }
+                    .addOnFailureListener { e->
+                        Toast.makeText(context, "Error al eliminar el comentario ${e.message}", Toast.LENGTH_SHORT).show()
+                    }
+            }
+            .setNegativeButton("Cancelar"){ d,e->
+                d.dismiss()
+            }
+            .show()
     }
 
     private fun cargarInformacion(
