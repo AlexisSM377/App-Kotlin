@@ -43,10 +43,10 @@ class MainActivityCliente : AppCompatActivity() {
                     true
                 }
 
-                R.id.Menu_ia_cl -> {
-                    verFragmentoChatIA()
-                    true
-                }
+//                R.id.Menu_ia_cl -> {
+//                    verFragmentoChatIA()
+//                    true
+//                }
 
                 R.id.Menu_cuenta_cl -> {
                     verFragmentoCuenta()
@@ -101,15 +101,15 @@ class MainActivityCliente : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
-    private fun verFragmentoChatIA(){
-        val nombre_titulo = "Chat IA"
-        binding.TituloRLCliente.text = nombre_titulo
-
-        val fragment = Fragment_cliente_chat()
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(binding.fragmentsCliente.id, fragment, "Fragment chat")
-        fragmentTransaction.commit()
-    }
+//    private fun verFragmentoChatIA(){
+//        val nombre_titulo = "Chat IA"
+//        binding.TituloRLCliente.text = nombre_titulo
+//
+//        val fragment = Fragment_cliente_chat()
+//        val fragmentTransaction = supportFragmentManager.beginTransaction()
+//        fragmentTransaction.replace(binding.fragmentsCliente.id, fragment, "Fragment chat")
+//        fragmentTransaction.commit()
+//    }
 
     private fun verFragmentoCuenta(){
         val nombre_titulo = "Cuenta"

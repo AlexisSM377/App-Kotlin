@@ -46,28 +46,41 @@ class Fragment_cliente_favoritos : Fragment() {
 
     private fun cargarFavoritos() {
         librosArrayList = ArrayList()
-        val ref = FirebaseDatabase.getInstance().getReference("Usuarios")
-        ref.child(firebaseAuth.uid!!).child("Favoritos")
+        val refFavoritos = FirebaseDatabase.getInstance().getReference("Usuarios")
+        refFavoritos.child(firebaseAuth.uid!!).child("Favoritos")
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     librosArrayList.clear()
                     for (ds in snapshot.children) {
                         val idLibro = "${ds.child("id").value}"
 
-                        val modelopdf = Modelopdf()
-                        modelopdf.id = idLibro
+                        val refLibros = FirebaseDatabase.getInstance().getReference("Libros")
+                        refLibros.child(idLibro).addListenerForSingleValueEvent(object : ValueEventListener {
+                            override fun onDataChange(snapshotLibro: DataSnapshot) {
+                                if (snapshotLibro.exists()) {
+                                    val modelopdf = Modelopdf()
+                                    modelopdf.id = idLibro
+                                    // Puedes agregar más detalles del libro aquí si es necesario
+                                    librosArrayList.add(modelopdf)
+                                } else {
+                                    // Si el libro ya no existe, remuévelo de los favoritos
+                                    refFavoritos.child(firebaseAuth.uid!!).child("Favoritos").child(ds.key!!).removeValue()
+                                }
+                                adaptadorPdfFav = AdaptadorPdfFavorito(mContext, librosArrayList)
+                                binding.RvLibrosFavoritos.adapter = adaptadorPdfFav
+                            }
 
-                        librosArrayList.add(modelopdf)
+                            override fun onCancelled(error: DatabaseError) {
+                                // Manejo de errores si es necesario
+                            }
+                        })
                     }
-                    adaptadorPdfFav = AdaptadorPdfFavorito(mContext, librosArrayList)
-                    binding.RvLibrosFavoritos.adapter = adaptadorPdfFav
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
+                    // Manejo de errores si es necesario
                 }
             })
-
     }
 
 }
