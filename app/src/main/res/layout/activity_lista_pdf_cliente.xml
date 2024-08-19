@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ba7264"
     tools:context=".Cliente.ListaPdfCliente">
 
     <RelativeLayout
@@ -27,9 +28,10 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_semi_bold"
             android:text="@string/Txt_titulo_libro"
-            android:textSize="18sp"
-            android:fontFamily="@font/poppins_semi_bold" />
+            android:textColor="#000"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Txt_categoria_libro"
@@ -38,8 +40,9 @@
             android:layout_below="@+id/Txt_titulo_libro"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
+            android:fontFamily="@font/poppins_medium"
             android:text="@string/Txt_categoria_libro"
-            android:fontFamily="@font/poppins_medium"/>
+            android:textColor="#000" />
 
         <View
             android:layout_width="match_parent"
@@ -51,15 +54,16 @@
 
     <EditText
         android:id="@+id/Et_buscar_libro_cliente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbarRLListarPdf"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_width="match_parent"
-        android:hint="@string/Et_buscar_libro_cliente"
-        android:fontFamily="@font/poppins_semi_bold"
         android:drawableStart="@drawable/ic_buscar"
-        android:layout_below="@id/toolbarRLListarPdf"
-        android:layout_height="wrap_content"/>
+        android:fontFamily="@font/poppins_semi_bold"
+        android:hint="@string/Et_buscar_libro_cliente"
+        android:textColorHint="#000" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Rv_libros_cliente"
@@ -67,10 +71,10 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/Et_buscar_libro_cliente"
         android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_libro_cliente"/>
+        tools:listitem="@layout/item_libro_cliente" />
 
 </RelativeLayout>

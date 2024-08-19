@@ -16,10 +16,10 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_libro_app"
+        android:icon="@mipmap/ic_mar_app"
         android:label="@string/app_name"
         android:requestLegacyExternalStorage="true"
-        android:roundIcon="@mipmap/ic_libro_app_round"
+        android:roundIcon="@mipmap/ic_mar_app_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LibrosAppKotlin"
         tools:targetApi="31">

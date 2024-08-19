@@ -16,14 +16,15 @@
         android:layout_marginEnd="10dp"
         android:drawableStart="@drawable/ic_buscar"
         android:fontFamily="@font/poppins_semi_bold"
-        android:hint="@string/Buscar_categoria" />
+        android:hint="@string/Buscar_categoria"
+        android:textColorHint="#000" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/LibrosMVMD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_below="@+id/Buscar_categoria"
+        android:orientation="horizontal"
         android:padding="20dp">
 
         <com.google.android.material.button.MaterialButton
@@ -31,8 +32,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/botones"
             android:fontFamily="@font/poppins_semi_bold"
-            android:text="@string/Btn_mas_vistos" />
+            android:text="@string/Btn_mas_vistos"
+            android:textColor="@color/black" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/Btn_mas_descargados"
@@ -40,14 +43,15 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_weight="1"
+            android:backgroundTint="@color/botones"
             android:fontFamily="@font/poppins_semi_bold"
-            android:text="@string/Btn_mas_descargados" />
+            android:text="@string/Btn_mas_descargados"
+            android:textColor="@color/black" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categoriaRv"
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/LibrosMVMD"

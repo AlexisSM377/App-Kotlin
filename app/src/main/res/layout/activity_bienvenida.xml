@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
+    android:background="#ba7264"
     android:layout_height="match_parent"
     android:gravity="center"
     tools:context=".Bienvenida">
@@ -11,6 +12,6 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/imagen_bienvenida" />
+        android:src="@drawable/ic_recetas" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

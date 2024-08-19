@@ -5,12 +5,14 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="10dp"
     app:cardElevation="0dp"
+    android:backgroundTint="#d3a096"
     app:cardUseCompatPadding="true"
     app:contentPadding="10dp">
 
     <TextView
         android:id="@+id/Item_nombre_cat_c"
         android:text="@string/Item_nombre_cat_c"
+        android:textColor="#000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_semi_bold"/>

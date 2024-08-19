@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ba7264"
     tools:context=".Cliente.DetalleLibro_Cliente">
 
     <RelativeLayout
@@ -26,6 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/poppins_semi_bold"
+            android:textColor="#000"
             android:text="@string/Txt_detalle_libro" />
 
         <View
@@ -79,6 +81,7 @@
                     android:layout_toEndOf="@+id/pdfRL"
                     android:fontFamily="@font/montserrat_bold"
                     android:text="@string/titulo_detalle_libro"
+                    android:textColor="#000"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -97,7 +100,8 @@
                             android:layout_marginStart="5dp"
                             android:layout_marginEnd="5dp"
                             android:fontFamily="@font/montserrat_semi_bold"
-                            android:text="@string/Txt_categoria_D" />
+                            android:text="@string/Txt_categoria_D"
+                            android:textColor="#000" />
 
                         <TextView
                             android:id="@+id/categoria_D"
@@ -105,7 +109,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
                             android:fontFamily="@font/montserrat_medium"
-                            android:text="@string/categoria_D" />
+                            android:text="@string/categoria_D"
+                            android:textColor="#000" />
 
                     </TableRow>
                     <!--Fecha-->
@@ -117,7 +122,8 @@
                             android:layout_marginStart="5dp"
                             android:layout_marginEnd="5dp"
                             android:fontFamily="@font/montserrat_semi_bold"
-                            android:text="@string/Txt_fecha_D" />
+                            android:text="@string/Txt_fecha_D"
+                            android:textColor="#000" />
 
                         <TextView
                             android:id="@+id/fecha_D"
@@ -125,7 +131,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
                             android:fontFamily="@font/montserrat_medium"
-                            android:text="@string/fecha_D" />
+                            android:text="@string/fecha_D"
+                            android:textColor="#000" />
 
                     </TableRow>
                     <!--Tamaño-->
@@ -137,7 +144,8 @@
                             android:layout_marginStart="5dp"
                             android:layout_marginEnd="5dp"
                             android:fontFamily="@font/montserrat_semi_bold"
-                            android:text="@string/Txt_tamaño_D" />
+                            android:text="@string/Txt_tamaño_D"
+                            android:textColor="#000" />
 
                         <TextView
                             android:id="@+id/size_D"
@@ -145,7 +153,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
                             android:fontFamily="@font/montserrat_medium"
-                            android:text="@string/tamaño_D" />
+                            android:text="@string/tamaño_D"
+                            android:textColor="#000" />
 
                     </TableRow>
                     <!--Vistas-->
@@ -157,7 +166,8 @@
                             android:layout_marginStart="5dp"
                             android:layout_marginEnd="5dp"
                             android:fontFamily="@font/montserrat_semi_bold"
-                            android:text="@string/Txt_vistas_D" />
+                            android:text="@string/Txt_vistas_D"
+                            android:textColor="#000" />
 
                         <TextView
                             android:id="@+id/vistas_D"
@@ -165,7 +175,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
                             android:fontFamily="@font/montserrat_medium"
-                            android:text="@string/vistas_D" />
+                            android:text="@string/vistas_D"
+                            android:textColor="#000" />
 
                     </TableRow>
                     <!--Descargas-->
@@ -177,7 +188,8 @@
                             android:layout_marginStart="5dp"
                             android:layout_marginEnd="5dp"
                             android:fontFamily="@font/montserrat_semi_bold"
-                            android:text="@string/Txt_descargas_D" />
+                            android:text="@string/Txt_descargas_D"
+                            android:textColor="#000" />
 
                         <TextView
                             android:id="@+id/descargas_D"
@@ -185,7 +197,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
                             android:fontFamily="@font/montserrat_medium"
-                            android:text="@string/descargas_D" />
+                            android:text="@string/descargas_D"
+                            android:textColor="#000" />
 
                     </TableRow>
                     <!--Paginas-->
@@ -197,7 +210,8 @@
                             android:layout_marginStart="5dp"
                             android:layout_marginEnd="5dp"
                             android:fontFamily="@font/montserrat_semi_bold"
-                            android:text="@string/Txt_paginas_D" />
+                            android:text="@string/Txt_paginas_D"
+                            android:textColor="#000" />
 
                         <TextView
                             android:id="@+id/paginas_D"
@@ -205,7 +219,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
                             android:fontFamily="@font/montserrat_medium"
-                            android:text="@string/paginas_D" />
+                            android:text="@string/paginas_D"
+                            android:textColor="#000" />
 
                     </TableRow>
 
@@ -217,6 +232,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:textColor="#000"
                 android:fontFamily="@font/montserrat_semi_bold"
                 android:text="@string/Txt_descripcion_D" />
 
@@ -225,6 +241,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:textColor="#000"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="@string/descripcion_D" />
 
@@ -242,6 +259,7 @@
                     android:layout_width="124dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:textColor="#000"
                     android:fontFamily="@font/poppins_semi_bold"
                     android:text="@string/Txt_comentarios"
                     android:textSize="17sp"
@@ -261,6 +279,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_below="@+id/Ib_agregar_comentario"
+                    android:layout_marginTop="-1dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/item_comentario" />
 
@@ -284,6 +303,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:layout_weight="1"
+
             android:drawableTop="@drawable/ic_libro"
             android:fontFamily="@font/montserrat_bold"
             android:text="@string/Btn_leer_libro_c" />

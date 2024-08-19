@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="#ba7264"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Elegir_rol">
@@ -38,19 +39,21 @@
             android:textAllCaps="true" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_marginTop="10dp"
             android:paddingTop="15dp"
-            android:src="@drawable/icono_cliente" />
+            android:src="@drawable/ic_recetas" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/Btn_rol_cliente"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:backgroundTint="@color/botones"
             android:text="@string/Btn_rol_cliente"
-            android:fontFamily="@font/montserrat_semi_bold"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/black"
             android:textAllCaps="true" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="140dp"
     android:layout_marginBottom="5dp"
+    android:backgroundTint="#ffcfa9"
     app:cardCornerRadius="5dp"
     app:cardElevation="0dp"
     app:contentPadding="5dp">
@@ -17,7 +18,7 @@
             android:layout_width="100dp"
             android:layout_height="140dp"
             android:layout_marginEnd="10dp"
-            android:background="#ccc">
+            android:background="#ffe9d5">
 
             <com.github.barteksc.pdfviewer.PDFView
                 android:id="@+id/VisualizadorPDF"
@@ -37,10 +38,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_toEndOf="@+id/RLPdf"
+            android:fontFamily="@font/poppins_semi_bold"
             android:maxLines="1"
             android:text="@string/Txt_titulo_libro_item"
-            android:textSize="18sp"
-            android:fontFamily="@font/poppins_semi_bold"/>
+            android:textColor="#000"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Txt_descripcion_libro_item"
@@ -50,9 +52,10 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:layout_toEndOf="@+id/RLPdf"
+            android:fontFamily="@font/poppins_medium"
             android:maxLines="4"
             android:text="@string/Txt_descripcion_libro_item"
-            android:fontFamily="@font/poppins_medium"/>
+            android:textColor="#000" />
 
         <TextView
             android:id="@+id/Txt_categoria_libro_admin"
@@ -60,9 +63,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:fontFamily="@font/montserrat_semi_bold"
             android:maxLines="1"
             android:text="@string/Txt_categoria_libro_admin"
-            android:fontFamily="@font/montserrat_semi_bold"/>
+            android:textColor="#000" />
 
 
         <TextView
@@ -71,9 +75,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@+id/RLPdf"
+            android:fontFamily="@font/montserrat_semi_bold"
             android:maxLines="1"
             android:text="@string/Txt_tamaño_libro_admin"
-            android:fontFamily="@font/montserrat_semi_bold"/>
+            android:textColor="#000" />
 
         <TextView
             android:id="@+id/Txt_fecha_libro_admin"
@@ -82,10 +87,11 @@
             android:layout_alignParentBottom="true"
             android:layout_toStartOf="@+id/Txt_categoria_libro_admin"
             android:layout_toEndOf="@+id/Txt_tamaño_libro_admin"
+            android:fontFamily="@font/montserrat_semi_bold"
             android:maxLines="1"
             android:text="@string/Txt_fecha_libro_admin"
             android:textAlignment="center"
-            android:fontFamily="@font/montserrat_semi_bold"/>
+            android:textColor="#000" />
 
     </RelativeLayout>
 
